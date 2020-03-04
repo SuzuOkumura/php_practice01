@@ -19,15 +19,33 @@ echo summary1(12,8)."\n";
 
 /*演習3*/
 //関数の定義：配列の要素をすべて掛け算します
+//array_product を使う場合
 function multiple3($arr){
   //戻り値変数の初期化
   $ans1 = 0;
-  $ans1 = $arr[0]*$arr[1]*$arr[2]*$arr[3]*$arr[4];
+  $ans1 = array_product($arr);
   return $ans1;
 }
 //配列の定義
-$mul1 = array(1,3,5,7,9);
+$mul1 = array(1, 3, 5, 7, 9);
 echo multiple3($mul1)."\n";
+
+//配列を順次ループで読み込む場合
+//考え方　→　配列をカウントする
+function multiple3b($arr2){
+  //計算結果格納変数の初期化
+  $ans2 = $arr2[0];
+  //配列を順次ループして読み込みます
+  //配列のカウントがループ回数の上限
+  for( $i = 1; $i < count($arr2); $i++ ){
+    $ans2 *= $arr2[$i];
+  }
+  return $ans2;
+}
+//配列の定義
+$mul2 = array(1, 3, 5, 7, 9);
+echo multiple3b($mul2)."\n";
+
 
 /*演習4*/
 function max_array($arr){
@@ -43,7 +61,7 @@ function max_array($arr){
  return $max_number;
  }
 //配列の定義
-$arr = array(1,10,5,14,9);
+$arr = array(1, 10, 5, 14, 9);
 echo max_array($arr)."\n";
 
 /*演習5*/
